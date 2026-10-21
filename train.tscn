@@ -1,0 +1,107 @@
+[gd_scene format=3 uid="uid://chn0ssv1xxdfb"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_s75uv"]
+size = Vector3(2.2, 0.35, 4.8)
+
+[sub_resource type="BoxMesh" id="BoxMesh_x6iqn"]
+size = Vector3(1.8, 1.2, 2.8)
+
+[sub_resource type="BoxMesh" id="BoxMesh_8omi5"]
+size = Vector3(1.8, 1.8, 1.6)
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_s75uv"]
+top_radius = 0.35
+bottom_radius = 0.35
+height = 0.18
+
+[sub_resource type="BoxMesh" id="BoxMesh_jcyux"]
+size = Vector3(0.9, 0.18, 1.7026367)
+
+[sub_resource type="BoxMesh" id="BoxMesh_yjft4"]
+size = Vector3(2, 0.6810703, 0.11)
+
+[sub_resource type="BoxMesh" id="BoxMesh_swosc"]
+size = Vector3(2, 0.1, 0.15756837)
+
+[sub_resource type="BoxMesh" id="BoxMesh_nnyrb"]
+size = Vector3(0.9, 0.18, 0.18)
+
+[node name="Train" type="Node3D" unique_id=934578600]
+
+[node name="locomotive" type="Node3D" parent="." unique_id=317773357]
+
+[node name="chassis" type="MeshInstance3D" parent="locomotive" unique_id=1080960978]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.65, 0)
+mesh = SubResource("BoxMesh_s75uv")
+
+[node name="enginehood" type="MeshInstance3D" parent="locomotive" unique_id=644456468]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.4, -0.7)
+mesh = SubResource("BoxMesh_x6iqn")
+
+[node name="cab" type="MeshInstance3D" parent="locomotive" unique_id=880887625]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.7, 1.5)
+mesh = SubResource("BoxMesh_8omi5")
+
+[node name="bogiefront" type="Node3D" parent="locomotive" unique_id=979156673]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.35, -1.5)
+
+[node name="wheelleft1" type="MeshInstance3D" parent="locomotive/bogiefront" unique_id=122009895]
+transform = Transform3D(-4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0, 0, 1, -0.55, 0, -0.65)
+mesh = SubResource("CylinderMesh_s75uv")
+
+[node name="wheelleft2" type="MeshInstance3D" parent="locomotive/bogiefront" unique_id=216104307]
+transform = Transform3D(-4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0, 0, 1, -0.55, 0, 0.65)
+mesh = SubResource("CylinderMesh_s75uv")
+
+[node name="wheelright1" type="MeshInstance3D" parent="locomotive/bogiefront" unique_id=821907366]
+transform = Transform3D(-4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0, 0, 1, 0.55, 0, -0.65)
+mesh = SubResource("CylinderMesh_s75uv")
+
+[node name="wheelright2" type="MeshInstance3D" parent="locomotive/bogiefront" unique_id=1239709542]
+transform = Transform3D(-4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0, 0, 1, 0.55, 0, 0.65)
+mesh = SubResource("CylinderMesh_s75uv")
+
+[node name="bogierear" type="Node3D" parent="locomotive" unique_id=620291596]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.35, 1.5)
+
+[node name="wheelleft1" type="MeshInstance3D" parent="locomotive/bogierear" unique_id=354178046]
+transform = Transform3D(-4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0, 0, 1, -0.55, 0, -0.65)
+mesh = SubResource("CylinderMesh_s75uv")
+
+[node name="wheelleft2" type="MeshInstance3D" parent="locomotive/bogierear" unique_id=1919034220]
+transform = Transform3D(-4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0, 0, 1, -0.55, 0, 0.65)
+mesh = SubResource("CylinderMesh_s75uv")
+
+[node name="wheelright1" type="MeshInstance3D" parent="locomotive/bogierear" unique_id=122105229]
+transform = Transform3D(-4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0, 0, 1, 0.55, 0, -0.65)
+mesh = SubResource("CylinderMesh_s75uv")
+
+[node name="wheelright2" type="MeshInstance3D" parent="locomotive/bogierear" unique_id=1055187341]
+transform = Transform3D(-4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0, 0, 1, 0.55, 0, 0.65)
+mesh = SubResource("CylinderMesh_s75uv")
+
+[node name="bogieframe" type="Node3D" parent="locomotive" unique_id=2038839254]
+
+[node name="frame1" type="MeshInstance3D" parent="locomotive/bogieframe" unique_id=537920347]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.3, -1.7263184)
+mesh = SubResource("BoxMesh_jcyux")
+
+[node name="frame2" type="MeshInstance3D" parent="locomotive/bogieframe" unique_id=1985291304]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.3, 1.5)
+mesh = SubResource("BoxMesh_jcyux")
+
+[node name="plug" type="MeshInstance3D" parent="locomotive/bogieframe" unique_id=731387809]
+transform = Transform3D(1, 0, 0, 0, -0.9396926, 0.34202015, 0, -0.34202015, -0.9396926, 0, 0.34792233, -2.5189548)
+mesh = SubResource("BoxMesh_yjft4")
+
+[node name="plug2" type="MeshInstance3D" parent="locomotive/bogieframe" unique_id=114471589]
+transform = Transform3D(1, 0, 0, 0, 0.9781476, -0.2079117, 0, 0.2079117, 0.9781476, 0, 0.06491783, -2.6660368)
+mesh = SubResource("BoxMesh_swosc")
+
+[node name="vmesnidel" type="MeshInstance3D" parent="locomotive/bogieframe" unique_id=1271351609]
+transform = Transform3D(0.99999994, 0, 0, 0, 0.99999994, 0, 0, 0, 1, 0, 0.4, -1.5)
+mesh = SubResource("BoxMesh_nnyrb")
+
+[node name="vmesnidel2" type="MeshInstance3D" parent="locomotive/bogieframe" unique_id=1982684224]
+transform = Transform3D(0.99999994, 0, 0, 0, 0.99999994, 0, 0, 0, 1, 0, 0.4, 1.5)
+mesh = SubResource("BoxMesh_nnyrb")
