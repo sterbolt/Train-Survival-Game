@@ -1,107 +1,686 @@
 [gd_scene format=3 uid="uid://chn0ssv1xxdfb"]
 
+[sub_resource type="GDScript" id="GDScript_s75uv"]
+script/source = "
+extends Node3D
+
+@onready var camera1: Camera3D = $locomotive/CabCamera
+@onready var camera2: Camera3D = $locomotive/OutsideCamera
+@onready var camera3: Camera3D = $locomotive/RearCamera
+@onready var camera4: Camera3D = $locomotive/FrontCamera
+var current_camera: int = 0
+
+func _ready() -> void:
+	switch_camera()
+
+func _input(event: InputEvent) -> void:
+	if event.is_action_pressed(\"switch_camera\"):
+		current_camera = (current_camera + 1) % 4
+		switch_camera()
+
+func switch_camera() -> void:
+	var cameras: Array[Camera3D] = [camera1, camera2, camera3, camera4]
+	cameras[current_camera].make_current()
+"
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_lomod"]
+albedo_color = Color(0.20963985, 0.19901928, 0.15172845, 1)
+
 [sub_resource type="BoxMesh" id="BoxMesh_s75uv"]
 size = Vector3(2.2, 0.35, 4.8)
 
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ks00s"]
+albedo_color = Color(0.23031491, 0.23031494, 0.23031494, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_qie3x"]
+size = Vector3(2.2, 0.2283142, 0.8)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_6wgv4"]
+albedo_color = Color(0.30980393, 0.30980393, 0.30980393, 1)
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_l4kwf"]
+top_radius = 0.05
+bottom_radius = 0.05
+height = 0.5
+
+[sub_resource type="BoxMesh" id="BoxMesh_l4kwf"]
+size = Vector3(2.1968505, 0.15, 0.15)
+
+[sub_resource type="BoxMesh" id="BoxMesh_urvup"]
+size = Vector3(0.64837646, 0.15, 0.15)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_3bh8j"]
+albedo_color = Color(0.21167311, 0.2746291, 0.09560684, 1)
+
 [sub_resource type="BoxMesh" id="BoxMesh_x6iqn"]
-size = Vector3(1.8, 1.2, 2.8)
+size = Vector3(1.4, 1.2038085, 2.8)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_urvup"]
+albedo_color = Color(1, 0.827451, 0.08235294, 1)
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_8omi5"]
+top_radius = 0.1
+bottom_radius = 0.2
+height = 0.12
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_4kks6"]
+albedo_color = Color(1, 0.827451, 0.08235294, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_gd4ni"]
+albedo_color = Color(0.21176471, 0.27450982, 0.09411765, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_smwv7"]
+size = Vector3(0.2, 1, 2.8)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_mvjya"]
+albedo_color = Color(0.21176471, 0.27450982, 0.09411765, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_j7rx5"]
+albedo_color = Color(0.21176471, 0.27450982, 0.09411765, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_nr7dr"]
+size = Vector3(0.2, 0.23178712, 2.8)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_7rou3"]
+albedo_color = Color(0.21176471, 0.27450982, 0.09411765, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_3ccrb"]
+albedo_color = Color(0.21176471, 0.27450982, 0.09411765, 1)
 
 [sub_resource type="BoxMesh" id="BoxMesh_8omi5"]
-size = Vector3(1.8, 1.8, 1.6)
+size = Vector3(1.8, 1.8, 1.431958)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_we324"]
+albedo_color = Color(0.19467357, 0.49384868, 0.7169884, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_xhfxf"]
+size = Vector3(1.8330054, 0.5, 0.34599608)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_20xu3"]
+albedo_color = Color(0.15127608, 0.15127608, 0.15127608, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_qo1j7"]
+size = Vector3(0.4, 1.4, 0.8)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_uqbwb"]
+albedo_color = Color(0.19607843, 0.49411765, 0.7176471, 1)
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_jcyux"]
+top_radius = 0.2
+bottom_radius = 0.2
+height = 0.2
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_7gnqk"]
+albedo_color = Color(0, 0, 0, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_ks00s"]
+size = Vector3(0.1, 0.1, 0.4)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_bju55"]
+albedo_color = Color(0, 0, 0, 1)
 
 [sub_resource type="CylinderMesh" id="CylinderMesh_s75uv"]
 top_radius = 0.35
 bottom_radius = 0.35
 height = 0.18
 
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_lagc3"]
+albedo_color = Color(0, 0, 0, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_xhfxf"]
+albedo_color = Color(0, 0, 0, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_qo1j7"]
+albedo_color = Color(0, 0, 0, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_qie3x"]
+albedo_color = Color(0, 0, 0, 1)
+
 [sub_resource type="BoxMesh" id="BoxMesh_jcyux"]
-size = Vector3(0.9, 0.18, 1.7026367)
+size = Vector3(0.9, 0.18, 1.6469421)
 
-[sub_resource type="BoxMesh" id="BoxMesh_yjft4"]
-size = Vector3(2, 0.6810703, 0.11)
-
-[sub_resource type="BoxMesh" id="BoxMesh_swosc"]
-size = Vector3(2, 0.1, 0.15756837)
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_nr7dr"]
+albedo_color = Color(0, 0, 0, 1)
 
 [sub_resource type="BoxMesh" id="BoxMesh_nnyrb"]
 size = Vector3(0.9, 0.18, 0.18)
 
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_kfycv"]
+albedo_color = Color(0.20784314, 0.2, 0.15294118, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_swosc"]
+size = Vector3(2, 0.12666015, 0.12175293)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_h16vo"]
+albedo_color = Color(0, 0, 0, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_l5j6f"]
+albedo_color = Color(0.21176471, 0.27450982, 0.09411765, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_yjft4"]
+size = Vector3(2, 0.6810703, 0.11)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_1ewb8"]
+albedo_color = Color(0.20784314, 0.2, 0.15294118, 1)
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_x6iqn"]
+top_radius = 0.18
+bottom_radius = 0.18
+height = 0.1
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_5c754"]
+albedo_color = Color(0.20784314, 0.2, 0.15294118, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_nnyrb"]
+albedo_color = Color(0, 0, 0, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_8omi5"]
+albedo_color = Color(0, 0, 0, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_jcyux"]
+albedo_color = Color(0, 0, 0, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_yjft4"]
+albedo_color = Color(0, 0, 0, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_swosc"]
+albedo_color = Color(0, 0, 0, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_e27fj"]
+albedo_color = Color(0.20784314, 0.2, 0.15294118, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_isp7n"]
+albedo_color = Color(0, 0, 0, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_n14qy"]
+albedo_color = Color(0.21176471, 0.27450982, 0.09411765, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_6fg1u"]
+albedo_color = Color(0.20784314, 0.2, 0.15294118, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_l4kwf"]
+albedo_color = Color(0.20784314, 0.2, 0.15294118, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_smwv7"]
+albedo_color = Color(0, 0, 0, 1)
+
 [node name="Train" type="Node3D" unique_id=934578600]
+script = SubResource("GDScript_s75uv")
 
 [node name="locomotive" type="Node3D" parent="." unique_id=317773357]
 
 [node name="chassis" type="MeshInstance3D" parent="locomotive" unique_id=1080960978]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.65, 0)
+material_override = SubResource("StandardMaterial3D_lomod")
 mesh = SubResource("BoxMesh_s75uv")
 
+[node name="rediator" type="MeshInstance3D" parent="locomotive/chassis" unique_id=224783958]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.2869894, 0)
+material_override = SubResource("StandardMaterial3D_ks00s")
+mesh = SubResource("BoxMesh_qie3x")
+
+[node name="railing2" type="MeshInstance3D" parent="locomotive/chassis" unique_id=47929707]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.0446128, 0.40845823, -2.344824)
+material_override = SubResource("StandardMaterial3D_6wgv4")
+mesh = SubResource("CylinderMesh_l4kwf")
+
+[node name="railing3" type="MeshInstance3D" parent="locomotive/chassis" unique_id=1189380178]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.0450696, 0.40845823, -2.344824)
+material_override = SubResource("StandardMaterial3D_6wgv4")
+mesh = SubResource("CylinderMesh_l4kwf")
+
+[node name="railing5" type="MeshInstance3D" parent="locomotive/chassis" unique_id=346091159]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.75, 0.408, -2.345)
+material_override = SubResource("StandardMaterial3D_6wgv4")
+mesh = SubResource("CylinderMesh_l4kwf")
+
+[node name="railing7" type="MeshInstance3D" parent="locomotive/chassis" unique_id=148114604]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.45, 0.408, -2.345)
+material_override = SubResource("StandardMaterial3D_6wgv4")
+mesh = SubResource("CylinderMesh_l4kwf")
+
+[node name="railing9" type="MeshInstance3D" parent="locomotive/chassis" unique_id=792080901]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.15, 0.408, -2.345)
+material_override = SubResource("StandardMaterial3D_6wgv4")
+mesh = SubResource("CylinderMesh_l4kwf")
+
+[node name="railing11" type="MeshInstance3D" parent="locomotive/chassis" unique_id=1356850084]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.15, 0.408, -2.345)
+material_override = SubResource("StandardMaterial3D_6wgv4")
+mesh = SubResource("CylinderMesh_l4kwf")
+
+[node name="railing12" type="MeshInstance3D" parent="locomotive/chassis" unique_id=1808775497]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.45, 0.408, -2.345)
+material_override = SubResource("StandardMaterial3D_6wgv4")
+mesh = SubResource("CylinderMesh_l4kwf")
+
+[node name="railing13" type="MeshInstance3D" parent="locomotive/chassis" unique_id=2060950159]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.75, 0.408, -2.345)
+material_override = SubResource("StandardMaterial3D_6wgv4")
+mesh = SubResource("CylinderMesh_l4kwf")
+
+[node name="railing4" type="MeshInstance3D" parent="locomotive/chassis" unique_id=1261545173]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.0446128, 0.40845823, 2.3474443)
+material_override = SubResource("StandardMaterial3D_6wgv4")
+mesh = SubResource("CylinderMesh_l4kwf")
+
+[node name="railing6" type="MeshInstance3D" parent="locomotive/chassis" unique_id=1532041226]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.0450696, 0.40845823, 2.3474443)
+material_override = SubResource("StandardMaterial3D_6wgv4")
+mesh = SubResource("CylinderMesh_l4kwf")
+
+[node name="railing8" type="MeshInstance3D" parent="locomotive/chassis" unique_id=1860278195]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.75, 0.408, 2.3472683)
+material_override = SubResource("StandardMaterial3D_6wgv4")
+mesh = SubResource("CylinderMesh_l4kwf")
+
+[node name="railing10" type="MeshInstance3D" parent="locomotive/chassis" unique_id=1127795748]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.45, 0.408, 2.3472683)
+material_override = SubResource("StandardMaterial3D_6wgv4")
+mesh = SubResource("CylinderMesh_l4kwf")
+
+[node name="railing14" type="MeshInstance3D" parent="locomotive/chassis" unique_id=1651919018]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.15, 0.408, 2.3472683)
+material_override = SubResource("StandardMaterial3D_6wgv4")
+mesh = SubResource("CylinderMesh_l4kwf")
+
+[node name="railing15" type="MeshInstance3D" parent="locomotive/chassis" unique_id=105155035]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.15, 0.408, 2.3472683)
+material_override = SubResource("StandardMaterial3D_6wgv4")
+mesh = SubResource("CylinderMesh_l4kwf")
+
+[node name="railingtop" type="MeshInstance3D" parent="locomotive/chassis" unique_id=685852091]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.6999999, -2.3450592)
+material_override = SubResource("StandardMaterial3D_6wgv4")
+mesh = SubResource("BoxMesh_l4kwf")
+
+[node name="railing17" type="MeshInstance3D" parent="locomotive/chassis" unique_id=1164769266]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 1.0482336, 0.40845823, -2.0440583)
+material_override = SubResource("StandardMaterial3D_6wgv4")
+mesh = SubResource("CylinderMesh_l4kwf")
+
+[node name="railing18" type="MeshInstance3D" parent="locomotive/chassis" unique_id=2020050738]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 1.0466367, 0.408, -1.7489932)
+material_override = SubResource("StandardMaterial3D_6wgv4")
+mesh = SubResource("CylinderMesh_l4kwf")
+
+[node name="railing19" type="MeshInstance3D" parent="locomotive/chassis" unique_id=1464091362]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 1.044834, 0.408, -1.4489985)
+material_override = SubResource("StandardMaterial3D_6wgv4")
+mesh = SubResource("CylinderMesh_l4kwf")
+
+[node name="railing20" type="MeshInstance3D" parent="locomotive/chassis" unique_id=471975972]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 1.0430315, 0.408, -1.1490037)
+material_override = SubResource("StandardMaterial3D_6wgv4")
+mesh = SubResource("CylinderMesh_l4kwf")
+
+[node name="railing21" type="MeshInstance3D" parent="locomotive/chassis" unique_id=535942614]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 1.0412289, 0.408, -0.84900934)
+material_override = SubResource("StandardMaterial3D_6wgv4")
+mesh = SubResource("CylinderMesh_l4kwf")
+
+[node name="railing22" type="MeshInstance3D" parent="locomotive/chassis" unique_id=1809569023]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 1.0394263, 0.408, -0.54901487)
+material_override = SubResource("StandardMaterial3D_6wgv4")
+mesh = SubResource("CylinderMesh_l4kwf")
+
+[node name="railing23" type="MeshInstance3D" parent="locomotive/chassis" unique_id=745656002]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 1.0376238, 0.408, -0.24902016)
+material_override = SubResource("StandardMaterial3D_6wgv4")
+mesh = SubResource("CylinderMesh_l4kwf")
+
+[node name="railing24" type="MeshInstance3D" parent="locomotive/chassis" unique_id=1842935837]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 1.0482336, 0.40845823, -0.022239327)
+material_override = SubResource("StandardMaterial3D_6wgv4")
+mesh = SubResource("CylinderMesh_l4kwf")
+
+[node name="railing25" type="MeshInstance3D" parent="locomotive/chassis" unique_id=1976457363]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 1.0466367, 0.408, 0.27282584)
+material_override = SubResource("StandardMaterial3D_6wgv4")
+mesh = SubResource("CylinderMesh_l4kwf")
+
+[node name="railing26" type="MeshInstance3D" parent="locomotive/chassis" unique_id=1838142718]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 1.0460459, 0.408, 0.5376781)
+material_override = SubResource("StandardMaterial3D_6wgv4")
+mesh = SubResource("CylinderMesh_l4kwf")
+
+[node name="railing27" type="MeshInstance3D" parent="locomotive/chassis" unique_id=1232406876]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 1.045455, 0.408, 0.8219194)
+material_override = SubResource("StandardMaterial3D_6wgv4")
+mesh = SubResource("CylinderMesh_l4kwf")
+
+[node name="railing28" type="MeshInstance3D" parent="locomotive/chassis" unique_id=436540305]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 1.0454692, 0.408, 1.0441855)
+material_override = SubResource("StandardMaterial3D_6wgv4")
+mesh = SubResource("CylinderMesh_l4kwf")
+
+[node name="railing29" type="MeshInstance3D" parent="locomotive/chassis" unique_id=218066773]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 1.0458126, 0.408, 1.8067821)
+material_override = SubResource("StandardMaterial3D_6wgv4")
+mesh = SubResource("CylinderMesh_l4kwf")
+
+[node name="railing30" type="MeshInstance3D" parent="locomotive/chassis" unique_id=149238420]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 1.0447422, 0.408, 2.0824594)
+material_override = SubResource("StandardMaterial3D_6wgv4")
+mesh = SubResource("CylinderMesh_l4kwf")
+
+[node name="railingtop3" type="MeshInstance3D" parent="locomotive/chassis" unique_id=1283304845]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 1.0242852, 0.6999999, -1.1757419)
+material_override = SubResource("StandardMaterial3D_6wgv4")
+mesh = SubResource("BoxMesh_l4kwf")
+
+[node name="railingtop5" type="MeshInstance3D" parent="locomotive/chassis" unique_id=872462877]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -1.0240582, 0.6999999, -1.1757419)
+material_override = SubResource("StandardMaterial3D_6wgv4")
+mesh = SubResource("BoxMesh_l4kwf")
+
+[node name="railingtop6" type="MeshInstance3D" parent="locomotive/chassis" unique_id=1291163254]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -1.0240582, 0.6999999, 0.31543714)
+material_override = SubResource("StandardMaterial3D_6wgv4")
+mesh = SubResource("BoxMesh_l4kwf")
+
+[node name="railingtop7" type="MeshInstance3D" parent="locomotive/chassis" unique_id=1672555659]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -1.0240582, 0.6999999, 1.2311776)
+material_override = SubResource("StandardMaterial3D_6wgv4")
+mesh = SubResource("BoxMesh_l4kwf")
+
+[node name="railingtop4" type="MeshInstance3D" parent="locomotive/chassis" unique_id=560196579]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 1.0242852, 0.6999999, -0.0091462135)
+material_override = SubResource("StandardMaterial3D_6wgv4")
+mesh = SubResource("BoxMesh_l4kwf")
+
+[node name="railing36" type="MeshInstance3D" parent="locomotive/chassis" unique_id=1396359179]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -1.0484686, 0.408, 0.015078783)
+material_override = SubResource("StandardMaterial3D_6wgv4")
+mesh = SubResource("CylinderMesh_l4kwf")
+
+[node name="railing44" type="MeshInstance3D" parent="locomotive/chassis" unique_id=690022879]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -1.0484686, 0.408, -0.3432603)
+material_override = SubResource("StandardMaterial3D_6wgv4")
+mesh = SubResource("CylinderMesh_l4kwf")
+
+[node name="railing45" type="MeshInstance3D" parent="locomotive/chassis" unique_id=1328460569]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -1.0484686, 0.408, -0.7112841)
+material_override = SubResource("StandardMaterial3D_6wgv4")
+mesh = SubResource("CylinderMesh_l4kwf")
+
+[node name="railing46" type="MeshInstance3D" parent="locomotive/chassis" unique_id=714434906]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -1.0484686, 0.408, -1.0550957)
+material_override = SubResource("StandardMaterial3D_6wgv4")
+mesh = SubResource("CylinderMesh_l4kwf")
+
+[node name="railing47" type="MeshInstance3D" parent="locomotive/chassis" unique_id=2137068935]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -1.0484686, 0.408, -1.40375)
+material_override = SubResource("StandardMaterial3D_6wgv4")
+mesh = SubResource("CylinderMesh_l4kwf")
+
+[node name="railing48" type="MeshInstance3D" parent="locomotive/chassis" unique_id=1587069411]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -1.0484686, 0.408, -1.70398)
+material_override = SubResource("StandardMaterial3D_6wgv4")
+mesh = SubResource("CylinderMesh_l4kwf")
+
+[node name="railing49" type="MeshInstance3D" parent="locomotive/chassis" unique_id=202480892]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -1.0484686, 0.408, -2.0187373)
+material_override = SubResource("StandardMaterial3D_6wgv4")
+mesh = SubResource("CylinderMesh_l4kwf")
+
+[node name="railing50" type="MeshInstance3D" parent="locomotive/chassis" unique_id=1325622798]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -1.0484686, 0.408, -2.0187373)
+material_override = SubResource("StandardMaterial3D_6wgv4")
+mesh = SubResource("CylinderMesh_l4kwf")
+
+[node name="railing37" type="MeshInstance3D" parent="locomotive/chassis" unique_id=1028226505]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -1.0484319, 0.408, 0.34862432)
+material_override = SubResource("StandardMaterial3D_6wgv4")
+mesh = SubResource("CylinderMesh_l4kwf")
+
+[node name="railing38" type="MeshInstance3D" parent="locomotive/chassis" unique_id=893021173]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -1.0480883, 0.408, 0.6486416)
+material_override = SubResource("StandardMaterial3D_6wgv4")
+mesh = SubResource("CylinderMesh_l4kwf")
+
+[node name="railing39" type="MeshInstance3D" parent="locomotive/chassis" unique_id=1254797668]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -1.0455673, 0.40845823, 0.9335654)
+material_override = SubResource("StandardMaterial3D_6wgv4")
+mesh = SubResource("CylinderMesh_l4kwf")
+
+[node name="railing40" type="MeshInstance3D" parent="locomotive/chassis" unique_id=1912166378]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -1.0461729, 0.408, 1.200735)
+material_override = SubResource("StandardMaterial3D_6wgv4")
+mesh = SubResource("CylinderMesh_l4kwf")
+
+[node name="railing41" type="MeshInstance3D" parent="locomotive/chassis" unique_id=233046127]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -1.045115, 0.408, 1.5150468)
+material_override = SubResource("StandardMaterial3D_6wgv4")
+mesh = SubResource("CylinderMesh_l4kwf")
+
+[node name="railing42" type="MeshInstance3D" parent="locomotive/chassis" unique_id=415217898]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -1.0457058, 0.408, 1.8017584)
+material_override = SubResource("StandardMaterial3D_6wgv4")
+mesh = SubResource("CylinderMesh_l4kwf")
+
+[node name="railing43" type="MeshInstance3D" parent="locomotive/chassis" unique_id=1846415884]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -1.046235, 0.408, 2.0865924)
+material_override = SubResource("StandardMaterial3D_6wgv4")
+mesh = SubResource("CylinderMesh_l4kwf")
+
+[node name="railingtop444" type="MeshInstance3D" parent="locomotive/chassis" unique_id=705069771]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.77362895, 0.6999999, 2.3316758)
+material_override = SubResource("StandardMaterial3D_6wgv4")
+mesh = SubResource("BoxMesh_urvup")
+
+[node name="railingtop445" type="MeshInstance3D" parent="locomotive/chassis" unique_id=1643846054]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.39557368, 0.6999999, 2.3316758)
+material_override = SubResource("StandardMaterial3D_6wgv4")
+mesh = SubResource("BoxMesh_urvup")
+
+[node name="railingtop446" type="MeshInstance3D" parent="locomotive/chassis" unique_id=1221088169]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.1261037, 0.6999999, 2.3316758)
+material_override = SubResource("StandardMaterial3D_6wgv4")
+mesh = SubResource("BoxMesh_urvup")
+
+[node name="railingtop447" type="MeshInstance3D" parent="locomotive/chassis" unique_id=880539954]
+transform = Transform3D(-4.3711385e-08, 0, -0.99999994, 0, 1, 0, 0.99999994, 0, -4.3711385e-08, 1.0197983, 0.6999999, 2.0726707)
+material_override = SubResource("StandardMaterial3D_6wgv4")
+mesh = SubResource("BoxMesh_urvup")
+
 [node name="enginehood" type="MeshInstance3D" parent="locomotive" unique_id=644456468]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.4, -0.7)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.00053709745, 1.4019041, -0.7)
+material_override = SubResource("StandardMaterial3D_3bh8j")
 mesh = SubResource("BoxMesh_x6iqn")
 
+[node name="luc" type="MeshInstance3D" parent="locomotive/enginehood" unique_id=1099669851]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, -0.5, 0, -1.4)
+material_override = SubResource("StandardMaterial3D_urvup")
+mesh = SubResource("CylinderMesh_8omi5")
+
+[node name="luc2" type="MeshInstance3D" parent="locomotive/enginehood" unique_id=500924872]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 0.5, 0, -1.4)
+material_override = SubResource("StandardMaterial3D_4kks6")
+mesh = SubResource("CylinderMesh_8omi5")
+
+[node name="enginehood2" type="MeshInstance3D" parent="locomotive/enginehood" unique_id=1951088259]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.75, -0.07, 0)
+material_override = SubResource("StandardMaterial3D_gd4ni")
+mesh = SubResource("BoxMesh_smwv7")
+
+[node name="enginehood3" type="MeshInstance3D" parent="locomotive/enginehood" unique_id=1174630988]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.75, -0.07, 0)
+material_override = SubResource("StandardMaterial3D_mvjya")
+mesh = SubResource("BoxMesh_smwv7")
+
+[node name="enginehood4" type="MeshInstance3D" parent="locomotive/enginehood" unique_id=1807777478]
+transform = Transform3D(0.7701216, -0.63789696, 0, 0.63789696, 0.7701216, 0, 0, 0, 1, 0.7, 0.453, 0)
+material_override = SubResource("StandardMaterial3D_j7rx5")
+mesh = SubResource("BoxMesh_nr7dr")
+
+[node name="enginehood5" type="MeshInstance3D" parent="locomotive/enginehood" unique_id=494364430]
+transform = Transform3D(0.7705131, 0.63742393, 0, -0.63742393, 0.7705131, 0, 0, 0, 1, -0.7, 0.453, 0)
+material_override = SubResource("StandardMaterial3D_7rou3")
+mesh = SubResource("BoxMesh_nr7dr")
+
 [node name="cab" type="MeshInstance3D" parent="locomotive" unique_id=880887625]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.7, 1.5)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.7, 1.4159789)
+material_override = SubResource("StandardMaterial3D_3ccrb")
 mesh = SubResource("BoxMesh_8omi5")
+
+[node name="okno" type="MeshInstance3D" parent="locomotive/cab" unique_id=2093844482]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0013439655, 0.5552499, -0.54690576)
+material_override = SubResource("StandardMaterial3D_we324")
+mesh = SubResource("BoxMesh_xhfxf")
+
+[node name="vrata" type="MeshInstance3D" parent="locomotive/cab" unique_id=1744644444]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.73162067, -0.17249608, 0.071377516)
+material_override = SubResource("StandardMaterial3D_20xu3")
+mesh = SubResource("BoxMesh_qo1j7")
+
+[node name="vrata okno" type="MeshInstance3D" parent="locomotive/cab/vrata" unique_id=1587010714]
+transform = Transform3D(-4.371139e-08, 1, -4.371139e-08, 0, -4.371139e-08, -1, -1, -4.371139e-08, 1.9106855e-15, 0.103, 0.404, 0)
+material_override = SubResource("StandardMaterial3D_uqbwb")
+mesh = SubResource("CylinderMesh_jcyux")
+
+[node name="horn" type="MeshInstance3D" parent="locomotive/cab" unique_id=858663636]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.6, 0.9, -0.4)
+material_override = SubResource("StandardMaterial3D_7gnqk")
+mesh = SubResource("BoxMesh_ks00s")
+
+[node name="horn2" type="MeshInstance3D" parent="locomotive/cab" unique_id=1618794287]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.6, 0.9, -0.4)
+material_override = SubResource("StandardMaterial3D_7gnqk")
+mesh = SubResource("BoxMesh_ks00s")
 
 [node name="bogiefront" type="Node3D" parent="locomotive" unique_id=979156673]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.35, -1.5)
 
 [node name="wheelleft1" type="MeshInstance3D" parent="locomotive/bogiefront" unique_id=122009895]
 transform = Transform3D(-4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0, 0, 1, -0.55, 0, -0.65)
+material_override = SubResource("StandardMaterial3D_bju55")
 mesh = SubResource("CylinderMesh_s75uv")
 
 [node name="wheelleft2" type="MeshInstance3D" parent="locomotive/bogiefront" unique_id=216104307]
 transform = Transform3D(-4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0, 0, 1, -0.55, 0, 0.65)
+material_override = SubResource("StandardMaterial3D_lagc3")
 mesh = SubResource("CylinderMesh_s75uv")
 
 [node name="wheelright1" type="MeshInstance3D" parent="locomotive/bogiefront" unique_id=821907366]
 transform = Transform3D(-4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0, 0, 1, 0.55, 0, -0.65)
+material_override = SubResource("StandardMaterial3D_xhfxf")
 mesh = SubResource("CylinderMesh_s75uv")
 
 [node name="wheelright2" type="MeshInstance3D" parent="locomotive/bogiefront" unique_id=1239709542]
 transform = Transform3D(-4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0, 0, 1, 0.55, 0, 0.65)
+material_override = SubResource("StandardMaterial3D_qo1j7")
 mesh = SubResource("CylinderMesh_s75uv")
+
+[node name="bogieframe" type="Node3D" parent="locomotive/bogiefront" unique_id=2038839254]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.35, 1.5)
+
+[node name="frame1" type="MeshInstance3D" parent="locomotive/bogiefront/bogieframe" unique_id=537920347]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.3, -1.6829529)
+material_override = SubResource("StandardMaterial3D_qie3x")
+mesh = SubResource("BoxMesh_jcyux")
+
+[node name="vmesnidel" type="MeshInstance3D" parent="locomotive/bogiefront/bogieframe" unique_id=1271351609]
+transform = Transform3D(0.99999994, 0, 0, 0, 0.99999994, 0, 0, 0, 1, 0, 0.4, -1.5)
+material_override = SubResource("StandardMaterial3D_nr7dr")
+mesh = SubResource("BoxMesh_nnyrb")
+
+[node name="odbijac" type="Node3D" parent="locomotive/bogiefront/bogieframe" unique_id=407620803]
+
+[node name="plug2" type="MeshInstance3D" parent="locomotive/bogiefront/bogieframe/odbijac" unique_id=114471589]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.7377523, -2.41576)
+material_override = SubResource("StandardMaterial3D_kfycv")
+mesh = SubResource("BoxMesh_swosc")
+
+[node name="plug3" type="MeshInstance3D" parent="locomotive/bogiefront/bogieframe/odbijac" unique_id=9532890]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, -2.6098185)
+material_override = SubResource("StandardMaterial3D_h16vo")
+mesh = SubResource("BoxMesh_swosc")
+
+[node name="plug" type="MeshInstance3D" parent="locomotive/bogiefront/bogieframe/odbijac" unique_id=731387809]
+transform = Transform3D(1, 0, 0, 0, -0.99989456, 0.0145202875, 0, -0.0145202875, -0.99989456, 0, 0.4, -2.5)
+material_override = SubResource("StandardMaterial3D_l5j6f")
+mesh = SubResource("BoxMesh_yjft4")
+
+[node name="odbijac" type="MeshInstance3D" parent="locomotive/bogiefront/bogieframe/odbijac" unique_id=2122449030]
+transform = Transform3D(1, 0, 0, 0, -4.3711385e-08, 0.99999994, 0, -0.99999994, -4.3711385e-08, 0.5, 0.5, -2.7)
+material_override = SubResource("StandardMaterial3D_1ewb8")
+mesh = SubResource("CylinderMesh_x6iqn")
+
+[node name="odbijac2" type="MeshInstance3D" parent="locomotive/bogiefront/bogieframe/odbijac" unique_id=1152428271]
+transform = Transform3D(1, 0, 0, 0, -4.3711385e-08, 0.99999994, 0, -0.99999994, -4.3711385e-08, -0.5, 0.5, -2.7)
+material_override = SubResource("StandardMaterial3D_5c754")
+mesh = SubResource("CylinderMesh_x6iqn")
 
 [node name="bogierear" type="Node3D" parent="locomotive" unique_id=620291596]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.35, 1.5)
 
+[node name="frame2" type="MeshInstance3D" parent="locomotive/bogierear" unique_id=1985291304]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.049999982, 0.21740055)
+material_override = SubResource("StandardMaterial3D_nnyrb")
+mesh = SubResource("BoxMesh_jcyux")
+
 [node name="wheelleft1" type="MeshInstance3D" parent="locomotive/bogierear" unique_id=354178046]
 transform = Transform3D(-4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0, 0, 1, -0.55, 0, -0.65)
+material_override = SubResource("StandardMaterial3D_8omi5")
 mesh = SubResource("CylinderMesh_s75uv")
 
 [node name="wheelleft2" type="MeshInstance3D" parent="locomotive/bogierear" unique_id=1919034220]
 transform = Transform3D(-4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0, 0, 1, -0.55, 0, 0.65)
+material_override = SubResource("StandardMaterial3D_jcyux")
 mesh = SubResource("CylinderMesh_s75uv")
 
 [node name="wheelright1" type="MeshInstance3D" parent="locomotive/bogierear" unique_id=122105229]
 transform = Transform3D(-4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0, 0, 1, 0.55, 0, -0.65)
+material_override = SubResource("StandardMaterial3D_yjft4")
 mesh = SubResource("CylinderMesh_s75uv")
 
 [node name="wheelright2" type="MeshInstance3D" parent="locomotive/bogierear" unique_id=1055187341]
 transform = Transform3D(-4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0, 0, 1, 0.55, 0, 0.65)
+material_override = SubResource("StandardMaterial3D_swosc")
 mesh = SubResource("CylinderMesh_s75uv")
 
-[node name="bogieframe" type="Node3D" parent="locomotive" unique_id=2038839254]
+[node name="odbijac2" type="Node3D" parent="locomotive/bogierear" unique_id=303557898]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.37198052, 3.7577014)
 
-[node name="frame1" type="MeshInstance3D" parent="locomotive/bogieframe" unique_id=537920347]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.3, -1.7263184)
-mesh = SubResource("BoxMesh_jcyux")
-
-[node name="frame2" type="MeshInstance3D" parent="locomotive/bogieframe" unique_id=1985291304]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.3, 1.5)
-mesh = SubResource("BoxMesh_jcyux")
-
-[node name="plug" type="MeshInstance3D" parent="locomotive/bogieframe" unique_id=731387809]
-transform = Transform3D(1, 0, 0, 0, -0.9396926, 0.34202015, 0, -0.34202015, -0.9396926, 0, 0.34792233, -2.5189548)
-mesh = SubResource("BoxMesh_yjft4")
-
-[node name="plug2" type="MeshInstance3D" parent="locomotive/bogieframe" unique_id=114471589]
-transform = Transform3D(1, 0, 0, 0, 0.9781476, -0.2079117, 0, 0.2079117, 0.9781476, 0, 0.06491783, -2.6660368)
+[node name="plug2" type="MeshInstance3D" parent="locomotive/bogierear/odbijac2" unique_id=961821096]
+transform = Transform3D(-1, -8.742278e-08, -3.821371e-15, 0, -4.371139e-08, 1, -8.742278e-08, 1, 4.371139e-08, 1.2162689e-09, 0.7485185, -2.817108)
+material_override = SubResource("StandardMaterial3D_e27fj")
 mesh = SubResource("BoxMesh_swosc")
 
-[node name="vmesnidel" type="MeshInstance3D" parent="locomotive/bogieframe" unique_id=1271351609]
-transform = Transform3D(0.99999994, 0, 0, 0, 0.99999994, 0, 0, 0, 1, 0, 0.4, -1.5)
+[node name="plug3" type="MeshInstance3D" parent="locomotive/bogierear/odbijac2" unique_id=478944579]
+transform = Transform3D(-1, -8.742278e-08, -3.821371e-15, 0, -4.371139e-08, 1, -8.742278e-08, 1, 4.371139e-08, 0, 0.5, -2.6)
+material_override = SubResource("StandardMaterial3D_isp7n")
+mesh = SubResource("BoxMesh_swosc")
+
+[node name="plug" type="MeshInstance3D" parent="locomotive/bogierear/odbijac2" unique_id=996160447]
+transform = Transform3D(1, 0, 0, 0, 0.9999999, 0, 0, 0, 0.9999999, 0, 0.4, -2.7)
+material_override = SubResource("StandardMaterial3D_n14qy")
+mesh = SubResource("BoxMesh_yjft4")
+
+[node name="odbijac" type="MeshInstance3D" parent="locomotive/bogierear/odbijac2" unique_id=491775658]
+transform = Transform3D(-1, -8.742277e-08, -3.8213705e-15, 0, -4.3711385e-08, 0.9999999, -8.742278e-08, 0.9999999, 4.3711385e-08, 0.5, 0.5, -2.5)
+material_override = SubResource("StandardMaterial3D_6fg1u")
+mesh = SubResource("CylinderMesh_x6iqn")
+
+[node name="odbijac2" type="MeshInstance3D" parent="locomotive/bogierear/odbijac2" unique_id=2127004528]
+transform = Transform3D(-1, -8.742277e-08, -3.8213705e-15, 0, -4.3711385e-08, 0.9999999, -8.742278e-08, 0.9999999, 4.3711385e-08, -0.5, 0.5, -2.5)
+material_override = SubResource("StandardMaterial3D_l4kwf")
+mesh = SubResource("CylinderMesh_x6iqn")
+
+[node name="vmesnidel2" type="MeshInstance3D" parent="locomotive/bogierear" unique_id=1982684224]
+transform = Transform3D(0.99999994, 0, 0, 0, 0.99999994, 0, 0, 0, 1, 0, 0.050000012, 0)
+material_override = SubResource("StandardMaterial3D_smwv7")
 mesh = SubResource("BoxMesh_nnyrb")
 
-[node name="vmesnidel2" type="MeshInstance3D" parent="locomotive/bogieframe" unique_id=1982684224]
-transform = Transform3D(0.99999994, 0, 0, 0, 0.99999994, 0, 0, 0, 1, 0, 0.4, 1.5)
-mesh = SubResource("BoxMesh_nnyrb")
+[node name="CabCamera" type="Camera3D" parent="locomotive" unique_id=1001736397]
+transform = Transform3D(1, 0, 0, 0, 0.98760754, 0.15694371, 0, -0.15694371, 0.98760754, 0, 2.6135826, 0.7318033)
+
+[node name="RearCamera" type="Camera3D" parent="locomotive" unique_id=2013219148]
+transform = Transform3D(-0.9999455, -0.0016383796, 0.010309924, 0.0061392304, 0.70648175, 0.70770466, -0.008443262, 0.7077294, -0.70643324, 0, 2.9585752, 2.3417702)
+
+[node name="OutsideCamera" type="Camera3D" parent="locomotive" unique_id=2068408687]
+transform = Transform3D(-0.9999455, -0.0016383803, 0.010309923, 0.0026951823, 0.91360843, 0.40658632, -0.010085375, 0.40659195, -0.91355425, 0, 3.8994646, 2.3417702)
+
+[node name="FrontCamera" type="Camera3D" parent="locomotive" unique_id=803928706]
+transform = Transform3D(1, 0, 0, 0, 0.94679993, 0.32182288, 0, -0.32182288, 0.94679993, 0, 1.5599205, -2.2976174)
