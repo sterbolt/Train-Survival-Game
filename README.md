@@ -1,78 +1,28 @@
-# Train Survival
+Train Survival
 
-**Train Survival** is a 3D survival game in development, created as part of **Hack Club Project Terra**.
+Train Survival is a 3D survival game being developed with Godot Engine for Hack Club Project Terra.
 
-## About the Game
+The game is built around one central idea: your train is more than a way to travel — it is your mobile base and the key to surviving in a forgotten railway world.
 
-You wake up at an abandoned, decaying railway station. Somewhere nearby, your cargo train is waiting for you.
+Development status: Work in progress. The game and its features are still being developed, so some systems described below may be incomplete, change, or not yet be available in the current build.
 
-Your train will become your mobile base as you travel through a lonely world surrounded by forests and railway tracks. Explore the wilderness, collect resources, grow plants, produce biofuel, and gradually improve your train to survive the journey.
+The idea
+The game begins at an abandoned railway station. Your goal is to find and use a cargo train with several weathered wagons. Once you get moving, the railway takes you through a forest where you can leave the train to explore and collect useful materials — but you will need to stay within a limited distance of your train.
 
-There is no busy city to return to. Your train is your home.
+The train is your main base. You will gradually improve it, expand its usefulness, and gather the resources needed to keep it running.
 
-## Planned Features
+Planned features
+- Explore: Travel along the railway and explore the surrounding forest.
+- Use the train as a base: Keep your equipment and supplies with you as you travel.
+- Collect resources: Search the environment and salvage materials from objects such as walls and containers.
+- Craft and build: Turn collected materials into tools and useful equipment.
+- Make fuel: Grow suitable plants and process them into biofuel.
+- Upgrade the train: Improve the locomotive and wagons over time. Upgrades are intended to require planning and resources.
+These are design goals, not a promise that every feature is already implemented.
 
--  A locomotive and multiple cargo wagons
--  Forest exploration with a limited distance from the train
--  An abandoned railway station
-- Plant growing and resource gathering
-- Biofuel production to power the train
-- Crafting tools and useful equipment
-- Train upgrades and additional wagons
--  A lonely world to explore and survive in
+Built with
+- Godot Engine — game engine
+- GDScript — gameplay scripting
+- Git and GitHub — version control and project hosting
 
-These features represent the planned direction of the project and may change during development.
-
-## Current Development Status
-
-The project is in its early development stage.
-
-Current work includes:
-
-- Building the 3D railway station and train
-- Creating the locomotive and cargo wagons
-- Setting up train movement along a railway path
-- Implementing acceleration and braking
-- Adding multiple camera views with camera switching
-- Improving train and wagon movement
-
-Many gameplay systems are still planned or under development.
-
-##  Controls
-
-| Key | Action |
-|---|---|
-| `w` | Start the train |
-| `S` | Stop the train |
-| `C` | Switch camera view |
-
-Controls may change as development continues.
-
-##  Built With
-
-- **Godot Engine** — 3D game development
-- **GDScript** — gameplay scripting
-
-## Roadmap
-
-- [x] Create the initial railway station
-- [x] Build the first version of the locomotive and wagons
-- [x] Implement basic train movement
-- [x] Add camera switching
-- [ ] Improve bogie movement and turning
-- [ ] Fix wagon spacing and alignment on the tracks
-- [ ] Build the surrounding forest
-- [ ] Implement resource gathering
-- [ ] Add plant growing and biofuel production
-- [ ] Develop crafting and train upgrades
-- [ ] Expand the survival gameplay
-
-## Project Status
-
-Train Survival is a work in progress. The project is being developed step by step as a learning project, with a focus on building a playable 3D survival experience.
-
-Created as an independent game development project for **Hack Club Project Terra**.
-
----
-
-*The journey is only beginning. Keep the train running.*
+The project is being developed with Godot 4.
