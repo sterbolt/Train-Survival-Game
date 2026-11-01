@@ -147,6 +147,7 @@ mesh = SubResource("BoxMesh_8omi5")
 
 [node name="bogiefront" type="Node3D" parent="wheels" unique_id=1965027555]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.35, -4.219254)
+top_level = true
 
 [node name="wheelleft1" type="MeshInstance3D" parent="wheels/bogiefront" unique_id=1696825088]
 transform = Transform3D(-4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0, 0, 1, -0.55, 0, -0.65)
@@ -203,6 +204,7 @@ mesh = SubResource("BoxMesh_s6ebc")
 
 [node name="bogierear" type="Node3D" parent="wheels" unique_id=2045030325]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.35, 4.1460905)
+top_level = true
 
 [node name="wheelleft1" type="MeshInstance3D" parent="wheels/bogierear" unique_id=167403565]
 transform = Transform3D(-4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0, 0, 1, -0.55, 0, -0.65)
